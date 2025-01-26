@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WISHES</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: powderblue;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .card-container{
+        perspective: 1000px;
+    }
+    .card{
+        width: 300px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateY(0deg);
+        transition: transform 1s ease-in-out;
+        cursor: pointer;
+    }
+    .card.open{
+        transform: rotateY(180deg) ;
+    }
+    .card-face{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 6px black;
+    }
+   .front{ background : skyblue;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+   }
+   .back{ background: white;
+          color: black;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: center;
+          padding: 20px;
+          transform: rotateY(180deg);
+          display:flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+   }
+   .back h1{margin: 0;
+            font-size: 28px;
+            color: black;
+   }
+   .back p{
+    margin: 10px 0 0;
+    font-size: 20px;
+    line-height: 1.4;
+   }
+</style>
+<body>
+    <div class="card-container">
+        <div class="card" id="greetingCard">
+            <div class="card-face front">
+                <span>Touch Me</span>
+            </div>
+            <div class="card-face back">
+                <h2>Best Wishes!</h2>
+                
+                <p>Happy Friendship day pookie🤩with lots of love🌙❤</p>
+            </div>
+        </div>
+    </div>
+<script>
+    const card = document.getElementById('greetingCard');
+
+    card.addEventListener('click', () => {
+     card.classList.toggle('open');
+    });
+</script>
+</body>
+</html>
